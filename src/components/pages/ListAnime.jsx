@@ -11,7 +11,9 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 
-const AnimeList = ({ title, image, episode, year, season, type }) => {
+//! image hitam putih: brightness-60 grayscale dark:brightness-40
+
+const ListAnime = ({ id, title, image, episode, year, season, type }) => {
   return (
     <div className="relative mx-auto w-full max-w-sm pt-0 justify-center overflow-hidden">
       <Card className="relative mx-auto w-full max-w-sm pt-0">
@@ -21,7 +23,7 @@ const AnimeList = ({ title, image, episode, year, season, type }) => {
           width={430}
           src={image || "undifined"}
           alt={title || "undifined"}
-          className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
+          className="relative z-20 aspect-video w-full object-cover"
         />
         <CardHeader>
           <CardAction>
@@ -35,7 +37,7 @@ const AnimeList = ({ title, image, episode, year, season, type }) => {
         </CardHeader>
         <CardFooter>
           <Link
-            href="/"
+            href={`/anime/${id}`}
             className="w-full hover:text-secondary hover:underline shadow-accent text-accent p-1 shadow-md bg-primary rounded text-center "
           >
             View Details
@@ -46,4 +48,4 @@ const AnimeList = ({ title, image, episode, year, season, type }) => {
   );
 };
 
-export default AnimeList;
+export default ListAnime;
