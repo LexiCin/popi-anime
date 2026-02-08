@@ -18,6 +18,13 @@ export default async function Home() {
         />
         <ListAnime api={topAnime} key={topAnime.mal_id} />
       </section>
+      {/* random anime */}
+       <section>
+        <HeaderAnime
+          title="Random Anime"
+        />
+        <ListAnime api={topAnime} key={topAnime.mal_id} />
+      </section>
     </>
   );
 }
