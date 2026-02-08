@@ -8,27 +8,16 @@ import {
 import { Skeleton } from "~/components/ui/skeleton";
 
 async function LoadingPage() {
-  const response = await fetch(
-    `${process.env.NEXR_PUBLIC_API_URL}/top/anime?limit=12`,
-  );
-  const anime = await response.json();
+  const array = new Array(12).fill(null)
+  
   return (
     <>
-      <div className="flex justify-center mt-2 text-2xl text-primary underline font-bold lg:text-3xl">
-        <h1>Top Anime</h1>
-      </div>
-      <Link
-        href="/top/anime"
-        className="flex justify-end hover:underline mx-4 relative"
-      >
-        Show all
-      </Link>
       <div className="grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 m-2 py-2 px-2">
-        {anime?.data.map((item) => {
+        {array?.map((_ , i) => {
           return (
             <Skeleton
-              key={item.mal_id}
               className="relative mx-auto w-full max-w-sm pt-0 justify-center overflow-hidden"
+              key={i}
             >
               <Card className="relative mx-auto w-full max-w-sm pt-0">
                 <CardHeader>
