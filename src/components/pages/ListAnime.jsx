@@ -16,11 +16,11 @@ import {
 const ListAnime = ({ api }) => {
   return (
     <div className="grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 m-2 py-2 px-2">
-      {api?.data?.map((anime) => {
+      {api?.data?.map((anime, i) => {
         return (
           <Card
             className="relative mx-auto w-full max-w-sm pt-0"
-            key={anime.mal_id}
+            key={i}
           >
             <div className="absolute inset-0 z-30 aspect-video bg-black/35" />
             <Image

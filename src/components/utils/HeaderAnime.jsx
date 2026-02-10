@@ -3,7 +3,7 @@ import Link from "next/link";
 const HeaderAnime = ({ title, LinkHref, LinkTitle }) => {
   return (
     <>
-      <div className="  mx-3 text-center mt-2 text-2xl text-primary  font-bold lg:text-3xl">
+      <div className="text-center items-center mt-2 text-2xl text-primary font-bold lg:text-3xl">
         <h1>{title}</h1>
       </div>
       {LinkHref && LinkTitle ? (

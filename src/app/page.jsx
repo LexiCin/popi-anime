@@ -14,7 +14,7 @@ export default async function Home() {
         <HeaderAnime
           title="Top Anime"
           LinkTitle="Show all"
-          LinkHref="/top/anime"
+          LinkHref="/top/anim"
         />
         <ListAnime api={topAnime} key={topAnime.mal_id} />
       </section>

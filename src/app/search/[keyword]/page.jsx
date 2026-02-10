@@ -15,7 +15,7 @@ const Search = async ({ params }) => {
     <>
       {/* Search anime */}
       <section>
-        <HeaderAnime title={`Search Result: ${decodeURI(keyword)}`} />
+        <HeaderAnime title={`search result: ${decodeURIComponent(keyword)}`} />
         <ListAnime api={searchAnime} />
       </section>
     </>
