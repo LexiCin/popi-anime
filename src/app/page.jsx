@@ -8,7 +8,7 @@ export default async function Home() {
     "recommendations/anime",
     "entry",
   );
-  recomendedAnime = reproduceData(recomendedAnime, 4)
+  recomendedAnime = reproduceData(recomendedAnime, 8)
   return (
     <>
       {/* top anime */}
