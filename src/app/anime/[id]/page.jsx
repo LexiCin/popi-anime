@@ -16,7 +16,6 @@ const Page = async ({ params }) => {
   const { id } = await params;
 
   const detailsCard = await getAnimeReusable(`anime/${id}`);
-
   return (
     <div className="flex justify-center items-center min-h-screen mt-2 flex-col">
       <Card className="relative mx-auto w-full max-w-sm pt-0 ">
@@ -56,7 +55,7 @@ const Page = async ({ params }) => {
         </CardContent>
       </Card>
       <div>
-        <VideoPlayer youtubeId={detailsCard.data.trailer.youtube_id} />
+        <VideoPlayer youtubeId={detailsCard?.data?.trailer?.youtube_id} />
       </div>
     </div>
   );

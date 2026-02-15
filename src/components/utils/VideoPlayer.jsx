@@ -1,6 +1,5 @@
 "use client";
-
-import YouTube from "react-youtube";
+import ReactPlayer from "react-player";
 import { Button } from "../ui/button";
 import { EyeClosedIcon, EyeIcon } from "lucide-react";
 import { useState } from "react";
@@ -10,22 +9,21 @@ const VideoPlayer = ({ youtubeId }) => {
   const hendleButton = () => {
     setIsVisible((prevState) => !prevState);
   };
-
-  const option = {
-    height: 250,
-    width: 350,
-  };
-
   const Player = () => {
     return (
       <div className="fixed bottom-0 right-0 m-2">
         <Button onClick={hendleButton} className="mb-2">
           <EyeClosedIcon />
         </Button>
-        <YouTube
-          videoId={youtubeId}
-          onReady={(event) => event.target.pauseVideo()}
-          opts={option}
+        <ReactPlayer
+          src={youtubeId}
+          width={350}
+          height={250}
+          controls={true}
+          playing={false}
+          onError={() =>
+            alert("Video trailer is broken, please try again later...")
+          }
         />
       </div>
     );
