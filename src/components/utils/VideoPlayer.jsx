@@ -16,7 +16,7 @@ const VideoPlayer = ({ youtubeId }) => {
           <EyeClosedIcon />
         </Button>
         <ReactPlayer
-          src={youtubeId}
+          src="https://youtu.be/dQw4w9WgXcQ?list=RDdQw4w9WgXcQ"
           width={350}
           height={250}
           controls={true}

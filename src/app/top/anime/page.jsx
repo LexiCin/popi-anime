@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getAnimeReusable } from "~/app/libs/api-libs";
+import { getAnimeReusable } from "~/lib/api-libs";
 import ListAnime from "~/components/pages/ListAnime";
 import HeaderPage from "~/components/utils/HeaderPage";
 import PaginationUtils from "~/components/utils/PaginationUtils";

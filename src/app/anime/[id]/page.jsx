@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { getAnimeReusable } from "~/app/libs/api-libs";
+import Link from "next/link";
+import { getAnimeReusable } from "~/lib/api-libs";
 import { Badge } from "~/components/ui/badge";
 import {
   Card,
@@ -35,6 +36,7 @@ const Page = async ({ params }) => {
           </CardAction>
           <CardTitle>{detailsCard.data.title || "N/A"}</CardTitle>
           <CardDescription>
+            {detailsCard?.data?.source || "unknown"} {" "}
             Episodes: {detailsCard?.data?.episodes || "N/A"} •{" "}
             {detailsCard?.data?.year || "N/A"}{" "}
             {detailsCard?.data?.season || "N/A"}
@@ -44,6 +46,7 @@ const Page = async ({ params }) => {
           <CardDescription>
             <CardTitle>synopsis:</CardTitle>
             {detailsCard?.data?.synopsis || "N/A"}
+            {" "}<Link href={detailsCard?.data?.url}>[Lear more]</Link>
           </CardDescription>
         </CardFooter>
         <CardTitle className="mx-2">Broadcast:</CardTitle>
@@ -55,7 +58,7 @@ const Page = async ({ params }) => {
         </CardContent>
       </Card>
       <div>
-        <VideoPlayer youtubeId={detailsCard?.data?.trailer?.youtube_id} />
+        <VideoPlayer />
       </div>
     </div>
   );

@@ -42,7 +42,7 @@ const ListAnime = ({ api }) => {
               className="relative z-20 aspect-video w-full object-cover"
             />
             <CardHeader>
-              <CardAction className="relative flex flex-wrap flex-col">
+              <CardAction>
                 <Badge variant="secondary">
                   {isSmallScren? "..." : `Type: ${anime?.type || "unknown"}`}
                 </Badge>

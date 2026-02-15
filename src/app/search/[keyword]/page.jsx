@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getAnimeReusable } from "~/app/libs/api-libs";
+import { getAnimeReusable } from "~/lib/api-libs";
 import ListAnime from "~/components/pages/ListAnime";
 import HeaderAnime from "~/components/utils/HeaderAnime";
 
