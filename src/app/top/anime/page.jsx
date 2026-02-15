@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { getAnimeReusable } from "~/app/libs/api-libs";
 import ListAnime from "~/components/pages/ListAnime";
 import HeaderPage from "~/components/utils/HeaderPage";
 import PaginationUtils from "~/components/utils/PaginationUtils";
@@ -10,10 +11,7 @@ const TopAnime = () => {
   const [anime, setAnime] = useState([]);
 
   const fetchData = async () => {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_LOCAL_URL}/top/anime?page=${page}`,
-    );
-    const data = await response.json();
+    const data = await getAnimeReusable("top/anime", `page=${page}`);
     setAnime(data);
   };
 
@@ -26,8 +24,8 @@ const TopAnime = () => {
       <HeaderPage titlePage={`Page #${page}`} />
       <ListAnime api={anime} />
       <footer>
-        < PaginationUtils
-          page={page} 
+        <PaginationUtils
+          page={page}
           lastPage={anime?.pagination?.last_visible_page}
           setPage={setPage}
         />

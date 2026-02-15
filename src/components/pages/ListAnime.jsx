@@ -1,5 +1,7 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { Badge } from "~/components/ui/badge";
 import { Button } from "~/components/ui/button";
 import {
@@ -14,8 +16,17 @@ import {
 //! image hitam putih: brightness-60 grayscale dark:brightness-40
 
 const ListAnime = ({ api }) => {
+  const [isSmallScren, setIsSmallScren] = useState(false)
+  useEffect (() => {
+    const checkScreen = () => {
+      setIsSmallScren(window.innerWidth  <= 400)
+    }
+    checkScreen()
+    window.addEventListener('resize', checkScreen)
+    return () => window.removeEventListener('resize', checkScreen)
+  }, [])
   return (
-    <div className="grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 m-2 py-2 px-2">
+    <div className="grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
       {api?.data?.map((anime, i) => {
         return (
           <Card
@@ -31,9 +42,9 @@ const ListAnime = ({ api }) => {
               className="relative z-20 aspect-video w-full object-cover"
             />
             <CardHeader>
-              <CardAction>
+              <CardAction className="relative flex flex-wrap flex-col">
                 <Badge variant="secondary">
-                  Type: {anime?.type || "unknown"}
+                  {isSmallScren? "..." : `Type: ${anime?.type || "unknown"}`}
                 </Badge>
               </CardAction>
               <CardTitle>{anime?.title || "undifined"}</CardTitle>
