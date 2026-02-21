@@ -12,19 +12,13 @@ import {
   CardHeader,
   CardTitle,
 } from "~/components/ui/card";
+import useMobileScreen from "~/hooks/useMobileScreen";
 
 //! image hitam putih: brightness-60 grayscale dark:brightness-40
 
 const ListAnime = ({ api }) => {
-  const [isSmallScren, setIsSmallScren] = useState(false)
-  useEffect (() => {
-    const checkScreen = () => {
-      setIsSmallScren(window.innerWidth  <= 400)
-    }
-    checkScreen()
-    window.addEventListener('resize', checkScreen)
-    return () => window.removeEventListener('resize', checkScreen)
-  }, [])
+  const isSmallScren = useMobileScreen()
+
   return (
     <div className="grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
       {api?.data?.map((anime, i) => {

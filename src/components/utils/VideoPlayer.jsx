@@ -3,7 +3,9 @@ import ReactPlayer from "react-player";
 import { Button } from "../ui/button";
 import { EyeClosedIcon, EyeIcon } from "lucide-react";
 import { useState } from "react";
-const VideoPlayer = ({ youtubeId }) => {
+import Link from "next/link";
+import { Badge } from "../ui/badge";
+const VideoPlayer = ({ youtubeId, embedUrl }) => {
   const [isvisible, setIsVisible] = useState(true);
 
   const hendleButton = () => {
@@ -16,7 +18,7 @@ const VideoPlayer = ({ youtubeId }) => {
           <EyeClosedIcon />
         </Button>
         <ReactPlayer
-          src="https://youtu.be/dQw4w9WgXcQ?list=RDdQw4w9WgXcQ"
+          src={youtubeId}
           width={350}
           height={250}
           controls={true}
@@ -25,6 +27,9 @@ const VideoPlayer = ({ youtubeId }) => {
             alert("Video trailer is broken, please try again later...")
           }
         />
+        <Badge>
+          <Link href={embedUrl || "/"}>Go to Trailer!</Link>
+        </Badge>
       </div>
     );
   };

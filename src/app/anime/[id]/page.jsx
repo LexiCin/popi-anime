@@ -15,8 +15,8 @@ import VideoPlayer from "~/components/utils/VideoPlayer";
 
 const Page = async ({ params }) => {
   const { id } = await params;
-
   const detailsCard = await getAnimeReusable(`anime/${id}`);
+
   return (
     <div className="flex justify-center items-center min-h-screen mt-2 flex-col">
       <Card className="relative mx-auto w-full max-w-sm pt-0 ">
@@ -24,7 +24,7 @@ const Page = async ({ params }) => {
         <Image
           width={320}
           height={430}
-          src={detailsCard.data?.images?.jpg?.image_url || "N/A"}
+          src={detailsCard?.data?.images?.jpg?.image_url || "N/A"}
           alt={detailsCard?.data?.title || "N/A"}
           className="relative z-20 aspect-video w-full object-cover"
         />
@@ -34,10 +34,10 @@ const Page = async ({ params }) => {
               Type: {detailsCard?.data?.type || "N/A"}
             </Badge>
           </CardAction>
-          <CardTitle>{detailsCard.data.title || "N/A"}</CardTitle>
+          <CardTitle>{detailsCard?.data?.title || "N/A"}</CardTitle>
           <CardDescription>
-            {detailsCard?.data?.source || "unknown"} {" "}
-            Episodes: {detailsCard?.data?.episodes || "N/A"} •{" "}
+            {detailsCard?.data?.source || "unknown"} Episodes:{" "}
+            {detailsCard?.data?.episodes || "N/A"} •{" "}
             {detailsCard?.data?.year || "N/A"}{" "}
             {detailsCard?.data?.season || "N/A"}
           </CardDescription>
@@ -45,8 +45,8 @@ const Page = async ({ params }) => {
         <CardFooter>
           <CardDescription>
             <CardTitle>synopsis:</CardTitle>
-            {detailsCard?.data?.synopsis || "N/A"}
-            {" "}<Link href={detailsCard?.data?.url}>[Lear more]</Link>
+            {detailsCard?.data?.synopsis || "N/A"}{" "}
+            <Link href={detailsCard?.data?.url}>[Lear more]</Link>
           </CardDescription>
         </CardFooter>
         <CardTitle className="mx-2">Broadcast:</CardTitle>
@@ -58,7 +58,10 @@ const Page = async ({ params }) => {
         </CardContent>
       </Card>
       <div>
-        <VideoPlayer />
+        <VideoPlayer
+          youtubeId={detailsCard.data.trailer.youtube_id}
+          embedUrl={detailsCard?.data?.trailer?.embed_url}
+        />
       </div>
     </div>
   );

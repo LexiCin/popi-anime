@@ -3,7 +3,7 @@ import Link from "next/link";
 const HeaderAnime = ({ title, LinkHref, LinkTitle }) => {
   return (
     <>
-      <div className="flex justify-start items-start m-3 text-2xl text-emerald-300 font-bold lg:text-3xl">
+      <div className="flex justify-start items-start m-3 text-2xl text-emerald-300 font-bold lg:text-3xl p-2 gap-2 ">
         <h1>{title}</h1>
       </div>
       {LinkHref && LinkTitle ? (

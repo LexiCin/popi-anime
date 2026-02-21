@@ -4,9 +4,9 @@ const nextConfig = {
     remotePatterns: [
       {
         hostname: 'cdn.myanimelist.net',
-      }
+      },
     ]
-  }
+  },
   /* config options here */
 };
 

@@ -1,4 +1,5 @@
 "use client";
+import { Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
 import { Button } from "~/components/ui/button";
@@ -30,7 +31,7 @@ const SearchInput = () => {
           className="text-secondary"
         />
         <Button className="hover:cursor-pointer" onClick={handleSearchInput}>
-          Search
+          <Search />
         </Button>
       </Field>
     </>

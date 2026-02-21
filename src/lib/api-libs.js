@@ -8,15 +8,15 @@ export const getAnimeReusable = async (resource, query) => {
 
 export const getNestedAnimeResaponse = async (resource, object) => {
   const res = await getAnimeReusable(resource);
-  return res.data.flatMap((item) => item[object]);
+  return res?.data?.flatMap((item) => item[object]);
 };
 
 export const reproduceData = (data, gap) => {
-  const first = ~~(Math.random() * (data.length - gap) + 1);
+  const first = ~~(Math?.random() * (data?.length - gap) + 1);
   const last = first + gap;
 
   const response = {
-    data: data.slice(first, last),
+    data: data?.slice(first, last),
   };
 
   return response;

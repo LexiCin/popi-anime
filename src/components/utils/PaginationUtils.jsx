@@ -63,7 +63,7 @@ function PaginationUtils({ page, lastPage, setPage }) {
 
   return (
     <>
-      <Pagination>
+      <Pagination className="text-accent p-2 gap-3">
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious
